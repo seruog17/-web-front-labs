@@ -34,14 +34,28 @@ a:link {
     color: blueviolet;
 }
 a:visited {
-    color: brown;
+    color: red;
 }
 a:hover {
-    color: bisque;
+    color: black;
     text-decoration: underline;
     transition: 0.3s;
 }
 a:active {
     color: black;
     opacity: 0.3;
+}
+div.menu {
+    border: 7px solid goldenrod;
+    border-radius: 5px;
+    width: 250px;
+    margin: 0 auto;
+    background-color: lawngreen;
+    transition: 1s 2s;
+}
+div.menu:hover {
+    background-color: #ffffff30;
+    box-shadow: 0 0 15px #00000030;
+    background-color: burlywood;
+    transition: 0.5s;
 }
