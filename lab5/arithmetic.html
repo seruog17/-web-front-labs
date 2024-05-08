@@ -53,6 +53,13 @@
             let result = a / b;
             alert('Деление ' + a + ' и ' + b + ' равна ' + result);
         }
+        function changeOutput(buttonNum, backColor, textColor, bordColor) {
+            let output = document.getElementById('output');
+            output.innerHTML = 'Нажата кнопка ' + buttonNum;
+            output.style.backgroundColor = backColor;
+            output.style.color = textColor;
+            output.style.border = bordColor;
+        }
         
 
     </script>
@@ -77,6 +84,11 @@
         div {
             margin: 10px;
         }
+        #output {
+            border: 1px solid;
+            width: 300px;
+            height: 40px;
+        }
     </style>
 </head>
 <body>
@@ -85,12 +97,27 @@
     </header>
     <main>
         <label>Первое число: <input type="number" value="5154" id="numberA"></label><br>
+
         <label>Второе число<input type="number" value="7891" id="numberB"></label><br>
+
         <div class="message" onclick="showSum()">Найти сумму чисел</div>
+
         <div class="message" onclick="showAuthor()">Узнать, кто автор страницы</div>
+
         <div class="message" onclick="showSubtraction()">Найти разность чисел</div>
+
         <div class="message" onclick="showProduct()">Найти произведение</div>
+
         <div class="message" onclick="showDivision()">Найти деление</div>
+
+        <div>
+            <input type="button" value="Кнопка 1" onclick="changeOutput(1, 'red' , 'yellow', ' 2px solid white')">
+            <input type="button" value="Кнопка 2" onclick="changeOutput(2, 'black' , 'lome', ' 2px solid purple')">
+            <input type="button" value="Кнопка 3" onclick="changeOutput(3, 'darkgreen' ,'lightblue', ' 2px solid blue')">
+            <input type="button" value="Кнопка 4" onclick="changeOutput(4, 'blue' , 'black', ' 2px solid yellow')">
+        </div>
+
+        <div id="output"></div>
     </main>
     <footer ondblclick="showhey()">
         &copy; Посаженников Сергей, ФБИ-22, 2 курс, 2024
