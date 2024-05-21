@@ -17,6 +17,19 @@
             padding: 20px;
             text-align: center;
         }
+        .rules {
+            margin-top: 20px;
+            padding: 10px;
+            text-align: left;
+        }
+        .rule {
+            font-size: 14px;
+            border: 1px solid #000;  
+            display: none;
+            width: 600px;
+            height: 120px;
+            border-radius: 10px;
+        }
     </style>
     <script>
         let number;
@@ -32,12 +45,12 @@
             let input = document.getElementById('user-number');
             let userNumber = parseInt(input.value);
             let message = document.getElementById('result');
-            if(userNumber > number) {
-                message.innerHTML = 'Вы ввели слишком большое число';
-            }
-            if(userNumber > 100 || userNumber < 1) {
+            if(userNumber < 1 || userNumber > 100) {
                 message.innerHTML = 'Число должно быть в диапазоне от 1 до 100!'
                 input.value = '';
+            }
+            else if(userNumber > number) {
+                message.innerHTML = 'Вы ввели слишком большое число';
             }
              else if(input.value == '') {
                 message.innerHTML = 'Введите число!'
@@ -64,6 +77,25 @@
             document.getElementById('user-number').value = '';
             document.getElementById('result').innerHTML = '';
         }
+        function showRules() {
+            let showButton = document.querySelector('.show');
+            let hideButton = document.querySelector('.hide');
+            let rulesText = document.querySelector('.rule');
+            
+            showButton.style.display = 'none';
+            hideButton.style.display = 'inline-block';
+            rulesText.style.display = 'block';
+        }
+        function hideRules() {
+            let showButton = document.querySelector('.show');
+            let hideButton = document.querySelector('.hide');
+            let rulesText = document.querySelector('.rule');
+            
+            showButton.style.display = 'inline-block';
+            hideButton.style.display = 'none';
+            rulesText.style.display = 'none';
+        }
+
     </script>
 </head>
 <body>
@@ -92,13 +124,31 @@
             <div>
                 Задумано число: <span id="number"></span>
             </div>
+
             <div>
                 Количество попыток: <span id="try-count"></span>
             </div>
+
             <div>
                 <button onclick="again()">Сыграть еще раз</button>
             </div>
         </div>
+
+        <div class="rules">
+            <button class ="show" onclick="showRules()">Показать правила игры</button>
+            <button class="hide" onclick="hideRules()" style="display: none;">Скрыть правила игры</button>
+            <ol type="A" class="rule" style="display: none;">
+                <li>Чтобы начать, нажмите на кнопку "Cыграть в игру"</li>
+                <li>Вам нужно отгадать число от 1 до 100.</li>
+                <li>Введите число от 1 до 100.</li>
+                <li>Нажмите кнопку "Угадать"!</li>
+                <li>После каждой попытки игроку сообщается, больше или меньше загаданное число.</li>
+                <li>Если хотите начать игру заново, нажмите кнопку "Угадать"</li>
+            </ol>
+
+
+        </div>
+
     </main>
     <footer>
         &copy; Посаженников Сергей, ФБИ-22, 2 курс, 2024
