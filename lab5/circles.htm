@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Посаженников Сергей Александрович. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-32x32.png" type="image/x-icon">
+    <style>
+        div{
+            border: 1px solid red;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 18pt;
+            cursor: pointer;
+            transition: all 1s ease-in-out;
+
+        }
+        .div1{
+            background-color: yellow;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+        .div2{
+            background-color: green;
+            position: absolute;
+            top: 100px;
+            left: 100px;
+        }
+        .div3{
+            background-color: rgb(222, 123, 123);
+            position: absolute;
+            top: 200px;
+            left: 200px;
+        }
+        .div4{
+            background-color: rgb(76, 76, 219);
+            position: absolute;
+            top: 200px;
+            left: 400px;
+        }
+        .div5{
+            background-color: paleturquoise;
+            position: absolute;
+            top: 300px;
+            left: 200px;
+        }
+        .div6{
+            background-color: rgb(207, 16, 207);
+            position: absolute;
+            top: 250px;
+            left: 500px;
+        }
+        .div7{
+            background-color: palegoldenrod;
+            position: absolute;
+            top: 100px;
+            left: 250px;
+        }
+        .div8{
+            background-color: palegreen;
+            position: absolute;
+            top: 100px;
+            left: 600px;
+        }
+        .div9{
+            background-color:aqua;
+            position: absolute;
+            top: 100px;
+            left: 800;
+        }
+        .div10{
+            background-color:salmon;
+            position: absolute;
+            top: 60px;
+            left: 550px;
+        }
+        input{
+            position: absolute;
+            top: 600px;
+            left: 550px;
+        }
+    </style>
+    <script>
+        function hideCircle(circle) {
+            circle.style.opacity = '0';
+            circle.style.transform = 'scale(0)';
+        }
+
+        function restoreCircles() {
+        const circles = document.querySelectorAll('div.circle');
+        circles.forEach(circle => {
+            circle.style.opacity = '1';
+            circle.style.transform = 'scale(1)';
+        });
+}
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+    <main>
+        <div class="div1 circle" onclick="hideCircle(this)">1</div>
+        <div class="div2 circle" onclick="hideCircle(this)">2</div>
+        <div class="div3 circle" onclick="hideCircle(this)">3</div>
+        <div class="div4 circle" onclick="hideCircle(this)">4</div>
+        <div class="div5 circle" onclick="hideCircle(this)">5</div>
+        <div class="div6 circle" onclick="hideCircle(this)">6</div>
+        <div class="div7 circle" onclick="hideCircle(this)">7</div>
+        <div class="div8 circle" onclick="hideCircle(this)">8</div>
+        <div class="div9 circle" onclick="hideCircle(this)">9</div>
+        <div class="div10 circle" onclick="hideCircle(this)">10</div>
+        <input type="button" value="Восстановить круги" onclick="restoreCircles()">
+    <footer>
+        &copy; Посаженников Сергей, ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>

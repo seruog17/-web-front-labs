@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Посаженников Сергей Александрович. Лабораторная 5</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-32x32.png" type="image/x-icon">
+    <script>
+        function Summa(){
+            let apple = document.getElementById('apple');
+            let pear = document.getElementById('pear');
+            let orange = document.getElementById('orange');
+            let melon = document.getElementById('melon');
+
+            let a = parseInt(apple.value);
+            let b = parseInt(pear.value);
+            let c = parseInt(orange.value);
+            let d = parseInt(melon.value);
+            let summa = a*100 + b*80 + c*150 + d*300;
+            let output = document.getElementById('output');
+            output.innerHTML = 'Общая цена: ' + summa + 'р';
+        }
+        function ClearFields() {
+            let apple = document.getElementById('apple');
+            let pear = document.getElementById('pear');
+            let orange = document.getElementById('orange');
+            let melon = document.getElementById('melon');
+            let output = document.getElementById('output');
+
+            apple.value = '';
+            pear.value = '';
+            orange.value = '';
+            melon.value = '';
+            output.innerHTML = '';
+        }
+    </script>
+     <style>
+        .cart {
+            margin: 0 auto;
+            border-radius: 10px;
+            border: 1px solid brown;
+            width: 250px;
+            height: auto
+            
+        }
+        h3 {
+            text-align: center;
+        }
+        p {
+            text-align: center;
+        }
+        input {
+            display:block;
+            margin:10px auto;
+            margin-top: -5px;
+    
+        }
+        div {
+            display:block;
+            margin: 10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+    <main>
+        <div class="cart">
+            <h3>Корзина товаров</h3>
+            <p>Яблоки (100р/шт):</p>
+            <input type="number" id="apple" min="0" placeholder="Сколько яблок?">
+            <p>Груши (80р/шт):</p>
+            <input type="number" id="pear" min="0" placeholder="Сколько груш?">
+            <p>Апельсины (150р/шт):</p>
+            <input type="number" id="orange" min="0" placeholder="Сколько апельсинов">
+            <p>Дыни (300р/шт):</p>
+            <input type="number" id="melon" min="0" placeholder="Сколько дынь?"> <br> <br> 
+            <input type="button" value="Рассчитать" onclick="Summa()"> 
+            <input type="button" value="Очистить" onclick="ClearFields()">
+            <div id="output"></div>
+        </div>
+    </main>
+    <footer>
+        &copy; Посаженников Сергей, ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>
