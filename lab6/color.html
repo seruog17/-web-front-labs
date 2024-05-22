@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="../favicon-32x32.png" type="image/x-icon">
     <style>
         .block {
-            background-color: coral;
+            background-color: orange;
             color: darkgreen;
             width: 300px;
             height: 90px;
@@ -20,19 +20,50 @@
             font-size: 18px;
             line-height: 1.5;
             cursor: pointer;
+            transition: background-color 0.5s, color 0.5s;
         }
         div {
          
         }
     </style>
+    <script>
+        function changeColor(div) {
+            if(div.style.backgroundColor == 'orange') {
+                div.style.backgroundColor = 'red';
+                div.style.color = 'orange';
+                document.getElementById('color-name').innerHTML = 'красный';
+            }
+            else if(div.style.backgroundColor == 'red') {
+                div.style.backgroundColor = 'black';
+                div.style.color = 'white';
+                document.getElementById('color-name').innerHTML = 'чёрный'
+                
+            }
+            else if(div.style.backgroundColor == 'black') {
+                div.style.backgroundColor = 'green';
+                div.style.color = 'lightblue';
+                document.getElementById('color-name').innerHTML = 'зелёный'
+            }
+            else if(div.style.backgroundColor == 'green') {
+                div.style.backgroundColor = 'blue';
+                div.style.color = 'white';
+                document.getElementById('color-name').innerHTML = 'синий'
+            }
+
+            else {
+                div.style.backgroundColor = 'orange';
+                document.getElementById('color-name').innerHTML = 'оранжевый'
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
         НГТУ, ФБ, Лабораторная работа 6
     </header>
     <main>
-      <div class="block" ondblclick="changeColor()">
-        Цвет: <span id = "color-name"></span>оранжевый<br>
+      <div class="block" ondblclick="changeColor(this)">
+        Цвет: <span id = "color-name">оранжевый</span><br>
         Сделайте двойной щелчок, чтобы сменить.
       </div>
     </main>
