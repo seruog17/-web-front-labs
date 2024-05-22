@@ -8,18 +8,33 @@
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="../favicon-16x16.png" type="image/x-icon">
     <link rel="shortcut icon" href="../favicon-32x32.png" type="image/x-icon">
+    <style>
+        .block {
+            background-color: coral;
+            color: darkgreen;
+            width: 300px;
+            height: 90px;
+            padding: 20px;
+            border: 2px solid black;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.5;
+            cursor: pointer;
+        }
+        div {
+         
+        }
+    </style>
 </head>
 <body>
     <header>
         НГТУ, ФБ, Лабораторная работа 6
     </header>
     <main>
-      <li>
-        <a href="random.html">Угадай число</a>
-      </li>
-      <li>
-        <a href="color.html">Перебор цветов</a>
-      </li>
+      <div class="block" ondblclick="changeColor()">
+        Цвет: <span id = "color-name"></span>оранжевый<br>
+        Сделайте двойной щелчок, чтобы сменить.
+      </div>
     </main>
     <footer>
         &copy; Посаженников Сергей, ФБИ-22, 2 курс, 2024
