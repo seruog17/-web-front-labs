@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Посаженников Сергей Александрович. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-32x32.png" type="image/x-icon">
+    <style>
+        table {
+            margin: 20px auto;
+        }
+        p {
+            margin: 20px;
+            text-align: center;
+        }
+        button {
+            padding: 5px 10px;
+            margin-left: 460px;
+            cursor: pointer;
+        }
+        th, td {
+            border: 1px solid;
+            padding: 5px 10px;
+        }
+        .clear-button {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function OK() {
+            let bal = document.querySelector('.bal');
+            let сart1 = document.querySelector('.сart1');
+            let сart2 = document.querySelector('.сart2');
+            let сart3 = document.querySelector('.сart3');
+            let сart4 = document.querySelector('.сart4');
+            let сart5 = document.querySelector('.сart5');
+            let сart6 = document.querySelector('.сart6');
+            let сart7 = document.querySelector('.сart7');
+            let сart8 = document.querySelector('.сart8');
+
+            let c1 = parseInt(сart1.value) || 0;
+            let c2 = parseInt(сart2.value) || 0;
+            let c3 = parseInt(сart3.value) || 0;
+            let c4 = parseInt(сart4.value) || 0;
+            let c5 = parseInt(сart5.value) || 0;
+            let c6 = parseInt(сart6.value) || 0;
+            let c7 = parseInt(сart7.value) || 0;
+            let c8 = parseInt(сart8.value) || 0;
+
+            let summa = c1 * 90 + c2 * 50 + c3 * 100 + c4 * 90 + c5 * 300 + c6 * 170 + c7 * 130 + c8 * 80;
+            let error = false;
+
+            if (c1 < 0) {
+                document.querySelector('.text').innerHTML = 'Количество товара не может быть отрицательным!';
+                error = true;
+            } 
+            else if (c2 < 0) {
+                document.querySelector('.text').innerHTML = 'Количество товара не может быть отрицательным!';
+                error = true;
+            }
+            else if (c3 < 0) {
+                document.querySelector('.text').innerHTML = 'Количество товара не может быть отрицательным!';
+                error = true;
+            }
+            else if (c4 < 0) {
+                document.querySelector('.text').innerHTML = 'Количество товара не может быть отрицательным!';
+                error = true;
+            }
+            else if (c5 < 0) {
+                document.querySelector('.text').innerHTML = 'Количество товара не может быть отрицательным!';
+                error = true;
+            }
+            else if (c6 < 0) {
+                document.querySelector('.text').innerHTML = 'Количество товара не может быть отрицательным!';
+                error = true;
+            }
+            else if (c7 < 0) {
+                document.querySelector('.text').innerHTML = 'Количество товара не может быть отрицательным!';
+                error = true;
+            }
+            else if (c8 < 0) {
+                document.querySelector('.text').innerHTML = 'Количество товара не может быть отрицательным!';
+                error = true;
+            }
+            else if (summa > bal.value) {
+                document.querySelector('.text').innerHTML = 'У вас недостаточно денег!';
+                error = true;
+            } 
+            else if (summa == 0) {
+                document.querySelector('.text').innerHTML = 'Выберете хотя бы один товар.';
+            } 
+            else {
+                document.querySelector('.sum').innerHTML = 'Итого: ' + summa + ' р';
+                document.querySelector('.text').innerHTML = 'Товары успешно добавлены в корзину.';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+    <main>
+        <p>
+            Мой баланс: <input type="number" value="100" class="bal">
+        </p>
+        <table>
+            <tr>
+                <th></th>
+                <th>Название</th>
+                <th>Цена</th>
+                <th>Количество</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Молоко</td>
+                <td>90 р</td>
+                <td><input type="number" min="0" value="0" class="сart1"></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Хлеб белый</td>
+                <td>50 р</td>
+                <td><input type="number" min="0" value="0" class="сart2"></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Масло сливочное, 200 гр</td>
+                <td>100 р</td>
+                <td><input type="number" min="0" value="0" class="сart3"></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Сметана</td>
+                <td>90 р</td>
+                <td><input type="number" min="0" value="0" class="сart4"></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Колбаса</td>
+                <td>300 р</td>
+                <td><input type="number" min="0" value="0" class="сart5"></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Масло растительное</td>
+                <td>170 р</td>
+                <td><input type="number" min="0" value="0" class="сart6"></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Яйца, 10 шт</td>
+                <td>130 р</td>
+                <td><input type="number" min="0" value="0" class="сart7"></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Йогурт</td>
+                <td>80 р</td>
+                <td><input type="number" min="0" value="0" class="сart8"></td>
+            </tr>
+        </table>
+        <button onclick="OK()">OK</button>
+        <p class="sum"></p><br>
+        <p class="text"></p>
+    </main>
+    <footer>
+        &copy; Посаженников Сергей, ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>
+
+
+
+
+
