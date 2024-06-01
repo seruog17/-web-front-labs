@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Посаженников Сергей Александрович. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-32x32.png" type="image/x-icon">
+    <script>
+        function showRusalStockPrices() {
+            const dates = [
+                "20.05.2024", "21.05.2024", "22.05.2024", "23.05.2024", "24.05.2024",
+                "27.05.2024", "28.05.2024", "29.05.2024", "30.05.2024", "31.05.2024"
+            ];
+            const prices = [
+                43.03, 44.30, 43.96, 45.69, 44.51,
+                43.38, 43.92, 45.25, 44.10, 43.50
+            ];
+
+            let container = document.getElementById('table-container');
+            let table = document.createElement('table');
+            table.border = "1";
+
+            
+            let tr = document.createElement('tr');
+            let thDate = document.createElement('th');
+            thDate.innerText = "Дата";
+
+            tr.appendChild(thDate);
+
+            let thPrice = document.createElement('th');
+            thPrice.innerText = "Цена акций";
+
+            tr.appendChild(thPrice);
+
+            let thDifference = document.createElement('th');
+            thDifference.innerText = "Разница";
+            
+            tr.appendChild(thDifference);
+            table.appendChild(tr);
+
+            
+            let sum = 0;
+            let maxPrice = prices[0];
+            let minPrice = prices[0];
+            for (let i = 0; i < dates.length; i++) {
+                let tr = document.createElement('tr');
+                let tdDate = document.createElement('td');
+                tdDate.innerText = dates[i];
+                tr.appendChild(tdDate);
+                let tdPrice = document.createElement('td');
+                tdPrice.innerText = prices[i];
+                tr.appendChild(tdPrice);
+                sum += prices[i];
+                if (prices[i] > maxPrice) maxPrice = prices[i];
+                if (prices[i] < minPrice) minPrice = prices[i];
+
+                if (i > 0) {
+                    let tdDifference = document.createElement('td');
+                    tdDifference.innerText = (prices[i] - prices[i - 1]).toFixed(2);
+                    tr.appendChild(tdDifference);
+                } else {
+                    let tdDifference = document.createElement('td');
+                    tdDifference.innerText = "-";
+                    tr.appendChild(tdDifference);
+                }
+
+                table.appendChild(tr);
+            }
+
+            
+            let average = sum / prices.length;
+            average = average.toFixed(2);
+
+            
+            let detail = document.getElementById('detail');
+            detail.innerText = `Среднее значение стоимости акции: ${average}\nМаксимальное значение стоимости акции: ${maxPrice}\nМинимальное значение стоимости акции: ${minPrice}`;
+
+            let button = document.querySelector('button');
+            button.style.display = 'none';
+
+            container.appendChild(table);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+    <main>
+        <button onclick="showRusalStockPrices()">Курс акций Русал</button>
+        <div id="table-container"></div>
+        <div id="detail"></div>
+    </main>
+    <footer>
+        &copy; Посаженников Сергей, ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>
