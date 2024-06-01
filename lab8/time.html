@@ -8,21 +8,26 @@
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="../favicon-16x16.png" type="image/x-icon">
     <link rel="shortcut icon" href="../favicon-32x32.png" type="image/x-icon">
+    <script src="time.js"></script>
+    <style>
+        #time {
+            font-size: 65pt;
+            color: green;
+            font-family: Courier, monospace;
+            font-weight: bold;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
 </head>
-<body>
+<body onload="showTime()">
     <header>
         НГТУ, ФБ, Лабораторная работа 8
     </header>
     <main>
-        <li>
-            <a href="date.html">Дата</a>
-        </li>
-        <li>
-            <a href="get-days-count.html">Число дней с даты рождения</a>
-        </li>
-        <li>
-            <a href="time.html">Число дней с даты рождения</a>
-        </li>
+        <div id="time">00:00:00</div>
     </main>
     <footer>
         &copy; Посаженников Сергей, ФБИ-22, 2 курс, 2024
