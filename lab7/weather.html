@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Посаженников Сергей Александрович. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-32x32.png" type="image/x-icon">
+    <style>
+        .weather-info {
+            border: 1px solid black;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+            display: inline-block;
+        }
+    </style>
+    <script>
+     function getWeather() {
+        const url = "https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia%2FBangkok";
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const timeArray = data.hourly.time;
+                const temperatureArray = data.hourly.temperature_2m;
+
+                const weatherElement = document.getElementById('weather');
+                weatherElement.innerHTML = '';
+
+                const targetHours = [8, 12, 20];
+                targetHours.forEach(hour => {
+                    const temperature = getTemperature(hour, timeArray, temperatureArray);
+                    const temperatureString = temperature !== null ? `${temperature} °C` : 'Нет данных';
+                    weatherElement.innerHTML += `<p>Температура в ${hour}:00: <b>${temperatureString}</b></p>`;
+                });
+            })
+    }
+
+    function getTemperature(hour, timeArray, temperatureArray) {
+        for (let i = 0; i < timeArray.length; i++) {
+            const time = new Date(timeArray[i]);
+            if (time.getHours() === hour) {
+                return temperatureArray[i];
+            }
+        }
+        return null; 
+    }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+    <main>
+        <button class="button" onclick="getWeather()">Показать погоду</button>
+        <div>Погода в Новосибирске:</div>
+        <div id="weather"></div>
+    </main>
+    <footer>
+        &copy; Посаженников Сергей, ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>
