@@ -49,23 +49,37 @@
         }
         function addCircles() {
             let main = document.querySelector('main');
-            let count = 10;
-            while (count >= -80) {
+            for (let count = 10; count >= -80; count -= 3) {
                 let newCircle = document.createElement('div');
                 newCircle.style.width = '30px';
                 newCircle.style.height = '30px';
-                newCircle.style.borderRadius = '50%'; 
+                newCircle.style.borderRadius = '50%';
                 newCircle.style.backgroundColor = 'white';
-                newCircle.style.display = 'inline-block'; 
+                newCircle.style.display = 'inline-block';
                 newCircle.style.margin = '5px';
                 newCircle.style.textAlign = 'center';
                 newCircle.style.lineHeight = '30px';
                 newCircle.innerHTML = count;
 
                 main.appendChild(newCircle);
-                count -= 3; 
-    }
-}
+            }
+        }
+        
+        function addOpacityBlocks() {
+            let main = document.querySelector('main');
+            for(let i = 0; i < 10; i++) {
+                let newBlock = document.createElement('div');
+                newBlock.style.width = '100px';
+                newBlock.style.height = '50px';
+                newBlock.style.backgroundColor = 'gray';
+                newBlock.style.margin = '5px';
+                newBlock.style.textAlign = 'center';
+                newBlock.style.opacity = `${i * 0.1}`; 
+                newBlock.innerHTML = i + 1; 
+
+                main.appendChild(newBlock);
+            }
+        }
     </script>
 </head>
 <body>
@@ -78,6 +92,7 @@
         <input type="number" id="blockCount" min="1" value="10">
         <button onclick="add20_50()">20 => 50</button>
         <button onclick="addCircles()">10 => -80</button>
+        <button onclick="addOpacityBlocks()">Opacity Blocks</button>
     </main>
     <footer>
         &copy; Посаженников Сергей, ФБИ-22, 2 курс, 2024
