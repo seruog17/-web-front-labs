@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,7 @@
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="../favicon-16x16.png" type="image/x-icon">
     <link rel="shortcut icon" href="../favicon-32x32.png" type="image/x-icon">
-    <script src="lab8.js">
-    </script>
+    <script src="lab8.js"></script>
 </head>
 <body onload="showDate()">
     <header>
@@ -17,6 +16,17 @@
     </header>
     <main>
         <div id="current-date"></div>
+        <div>
+            <label for="date">Дата (дд.мм.гггг):</label>
+            <input type="text" id="date" placeholder="Введите дату (дд.мм.гггг)">
+            <label for="month">Месяц:</label>
+            <input type="text" id="month" placeholder="Введите месяц (мм)">
+            <label for="year">Год:</label>
+            <input type="text" id="year" placeholder="Введите год (гггг)">
+            <button onclick="findDayOfWeek()">День недели</button>
+            <div id="result"></div>
+        </div>
+    </main>
     <footer>
         &copy; Посаженников Сергей, ФБИ-22, 2 курс, 2024
     </footer>

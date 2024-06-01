@@ -20,3 +20,24 @@ function showDate() {
 
     out.innerHTML += "<br>Текущий год: " + year + "<br>Текущий месяц: " + month + "<br>Текущая дата: " + date + "<br>День недели: " + dayOfWeek;
 }
+function findDayOfWeek() {
+    const weekDays = ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"];
+    const dateInput = document.getElementById('date');
+    const monthInput = document.getElementById('month');
+    const yearInput = document.getElementById('year');
+    const result = document.getElementById('result');
+
+    const year = parseInt(yearInput.value, 10);
+    const month = parseInt(monthInput.value, 10) - 1; 
+    const date = parseInt(dateInput.value, 10);
+
+    const dateObj = new Date(year, month, date);
+
+    if (isNaN(dateObj.getTime())) {
+        result.innerHTML = "Неверный формат даты!";
+    } else {
+        const dayNumber = dateObj.getDay();
+        const dayOfWeek = weekDays[dayNumber];
+        result.innerHTML = `День недели: ${dayOfWeek}`;
+    }
+}
