@@ -64,7 +64,7 @@
                 main.appendChild(newCircle);
             }
         }
-        
+
         function addOpacityBlocks() {
             let main = document.querySelector('main');
             for(let i = 0; i < 10; i++) {
@@ -80,6 +80,24 @@
                 main.appendChild(newBlock);
             }
         }
+        function createColorfulCircles() {
+            let main = document.querySelector('main');
+            let count = parseInt(document.getElementById('circleCount').value, 10);
+            for (let i = count; i > 0; i--) {
+                let newCircle = document.createElement('div');
+                newCircle.style.width = '30px';
+                newCircle.style.height = '30px';
+                newCircle.style.borderRadius = '50%';
+                newCircle.style.display = 'inline-block';
+                newCircle.style.margin = '5px';
+                newCircle.style.textAlign = 'center';
+                newCircle.style.lineHeight = '30px';
+                newCircle.style.backgroundColor = i % 2 === 0 ? 'green' : 'red'; 
+                newCircle.innerHTML = i;
+
+                main.appendChild(newCircle);
+            }
+        }
     </script>
 </head>
 <body>
@@ -93,6 +111,8 @@
         <button onclick="add20_50()">20 => 50</button>
         <button onclick="addCircles()">10 => -80</button>
         <button onclick="addOpacityBlocks()">Opacity Blocks</button>
+        <input type="number" id="circleCount" min="1" value="10">
+        <button onclick="createColorfulCircles()">Цветные круги</button>
     </main>
     <footer>
         &copy; Посаженников Сергей, ФБИ-22, 2 курс, 2024
