@@ -34,6 +34,38 @@
                 main.appendChild(newBlock);
             }
         }
+
+        function add20_50() {
+            let main = document.querySelector('main');
+            for(let i = 20; i<=50; i+=2.5) {
+                let newBlock = document.createElement('div');
+                newBlock.style.width = '40px';
+                newBlock.style.border = '1px solid';
+
+                newBlock.innerHTML = `${i}`;
+
+                main.appendChild(newBlock);
+            }
+        }
+        function addCircles() {
+            let main = document.querySelector('main');
+            let count = 10;
+            while (count >= -80) {
+                let newCircle = document.createElement('div');
+                newCircle.style.width = '30px';
+                newCircle.style.height = '30px';
+                newCircle.style.borderRadius = '50%'; 
+                newCircle.style.backgroundColor = 'white';
+                newCircle.style.display = 'inline-block'; 
+                newCircle.style.margin = '5px';
+                newCircle.style.textAlign = 'center';
+                newCircle.style.lineHeight = '30px';
+                newCircle.innerHTML = count;
+
+                main.appendChild(newCircle);
+                count -= 3; 
+    }
+}
     </script>
 </head>
 <body>
@@ -44,6 +76,8 @@
         <button onclick="addNewBlock()">Добавить блок</button>
         <button onclick="addNewBlocks()">Добавить блоки</button>
         <input type="number" id="blockCount" min="1" value="10">
+        <button onclick="add20_50()">20 => 50</button>
+        <button onclick="addCircles()">10 => -80</button>
     </main>
     <footer>
         &copy; Посаженников Сергей, ФБИ-22, 2 курс, 2024
