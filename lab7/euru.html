@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Посаженников Сергей Александрович. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-32x32.png" type="image/x-icon">
+    <style>
+        .exchange-info {
+            border: 1px solid black;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+            display: inline-block;
+        }
+        .exchange-info a {
+            color: blue;
+            text-decoration: none;
+        }
+        .exchange-info span {
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function getEuroExchangeRate() {
+            const url = 'https://www.cbr-xml-daily.ru/daily_json.js';
+            fetch(url)
+                .then(response => response.json())
+                .then(json => {
+                    const date = new Date(json.Date);
+                    const currentRate = json.Valute.EUR.Value;
+                    const previousRate = json.Valute.EUR.Previous;
+                    const diff = currentRate - previousRate;
+                    const diffSign = diff > 0 ? 'поднялся' : 'опустился';
+                    const diffAbs = Math.abs(diff).toFixed(4);
+
+                    const exchangeInfo = document.createElement('div');
+                    exchangeInfo.className = 'exchange-info';
+                    exchangeInfo.innerHTML = `
+                        <span>Текущий курс евро:</span> ${currentRate.toFixed(4)}<br>
+                        <span>Дата запроса:</span> ${date.toLocaleDateString()}<br>
+                        <span>Курс за прошлую дату:</span> ${previousRate.toFixed(4)}<br>
+                        <span>Разница:</span> ${diffSign} на ${diffAbs} руб.<br>
+                        <a href="https://www.cbr-xml-daily.ru/" target="_blank">Источник данных</a>
+                    `;
+                    document.body.appendChild(exchangeInfo);
+                });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+    <main>
+        <button class="button" onclick="getEuroExchangeRate()">Курс евро</button>
+    </main>
+    <footer>
+        &copy; Посаженников Сергей, ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>
