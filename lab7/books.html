@@ -21,12 +21,14 @@
 
         function addNewBlocks() {
             let main = document.querySelector('main');
-            for(let i = 0; i<10; i++) {
+            let count = parseInt(document.getElementById('blockCount').value, 10);
+            for(let i = 0; i<count; i++) {
                 let newBlock = document.createElement('div');
                 newBlock.style.backgroundColor = 'green';
                 newBlock.style.height = '40px';
                 newBlock.style.border = '1px solid white';
                 newBlock.style.margin = '15px';
+                newBlock.style.width = `${200 + i * 10}px`;
                 newBlock.innerHTML = `Блок № ${i+1}: 2*${i}<sup>2</sup> =  ${2 * i**2}`;
 
                 main.appendChild(newBlock);
@@ -41,6 +43,7 @@
     <main>
         <button onclick="addNewBlock()">Добавить блок</button>
         <button onclick="addNewBlocks()">Добавить блоки</button>
+        <input type="number" id="blockCount" min="1" value="10">
     </main>
     <footer>
         &copy; Посаженников Сергей, ФБИ-22, 2 курс, 2024
