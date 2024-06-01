@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Посаженников Сергей Александрович. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-16x16.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../favicon-32x32.png" type="image/x-icon">
+    <script>
+        function addNewBlock() {
+            let newBlock = document.createElement('div');
+            newBlock.style.backgroundColor = 'green';
+            newBlock.style.height = '40px';
+            newBlock.style.border = '1px solid white';
+            newBlock.style.margin = '15px';
+
+            document.querySelector('main').appendChild(newBlock);
+        }
+
+        function addNewBlocks() {
+            let main = document.querySelector('main');
+            for(let i = 0; i<10; i++) {
+                let newBlock = document.createElement('div');
+                newBlock.style.backgroundColor = 'green';
+                newBlock.style.height = '40px';
+                newBlock.style.border = '1px solid white';
+                newBlock.style.margin = '15px';
+                newBlock.innerHTML = `Блок № ${i+1}: 2*${i}<sup>2</sup> =  ${2 * i**2}`;
+
+                main.appendChild(newBlock);
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+    <main>
+        <button onclick="addNewBlock()">Добавить блок</button>
+        <button onclick="addNewBlocks()">Добавить блоки</button>
+    </main>
+    <footer>
+        &copy; Посаженников Сергей, ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>
