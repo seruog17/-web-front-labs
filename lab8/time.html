@@ -16,18 +16,51 @@
             font-family: Courier, monospace;
             font-weight: bold;
             position: absolute;
+        }
+        #seconds {
+            position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            font-size: 48px;
+            font-weight: bold;
+            color: white;
+            z-index: 1;
+        }
+
+        .clock {
+            width: 400px;
+            height: 400px;
+            border: 15px solid green; 
+            border-radius: 50%;
+            position: relative;
+            margin: 100px auto;
+            background: black;
+        }
+
+        #second-hand {
+            width: 40%;
+            height: 8px;
+            background: green;
+            z-index: 2;
+            position: absolute;
+            top: 50%;
+            transform-origin: 100%;
+            transform: rotate(90deg);
+            transition: transform 0.5s ease-in-out;
         }
     </style>
 </head>
 <body onload="showTime()">
     <header>
         НГТУ, ФБ, Лабораторная работа 8
+        <div id="time">00:00:00</div>
     </header>
     <main>
-        <div id="time">00:00:00</div>
+        <div id="seconds"></div>
+            <div class="clock">
+                <div id="second-hand"></div>
+            </div>
     </main>
     <footer>
         &copy; Посаженников Сергей, ФБИ-22, 2 курс, 2024
